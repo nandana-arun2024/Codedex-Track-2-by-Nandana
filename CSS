@@ -1,118 +1,60 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Disable horizontal scrollbar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-header {
+header, footer {
     background-color: #333;
-    color: #fff;
-    padding: 20px 0;
-    animation: fadeIn 1s ease-in-out;
-}
-
-header h1 {
-    margin: 0;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
 }
 
 main {
-    padding: 20px;
+    flex: 1;
+    padding: 2rem;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-button {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #555;
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-#items {
-    margin-top: 30px;
-}
-
-#items ul {
+ul {
     list-style-type: none;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
 }
 
-#items li {
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    display: inline-flex; /* Ensure the SVG and text are inline */
-    align-items: center; /* Center vertically */
+li {
+    margin-bottom: 1rem;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
-.items-image {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.animated-item svg {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px; /* Space between icon and text */
-}
-
-.animated-item.active {
-    animation: floatAnimation 3s infinite;
-}
-
-@keyframes floatAnimation {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
+li svg {
+    margin-right: 1rem;
+    fill: #666;
 }
 
 .share-options {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
 }
 
 .share-option {
+    margin-right: 1rem;
     cursor: pointer;
-    transition: transform 0.3s ease;
 }
 
-.share-option svg {
-    width: 24px;
-    height: 24px;
+.animated-item {
+    transition: transform 0.2s ease-out;
 }
 
-.share-option:hover {
-    transform: scale(1.1);
+.animated-item:hover {
+    transform: translateY(-5px);
 }
