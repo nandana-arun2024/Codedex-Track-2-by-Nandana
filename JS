@@ -1,0 +1,58 @@
+document.addEventListener('DOMContentLoaded', function() {
+    animateSections();
+    animateItems();
+    setupShareOptions();
+});
+
+function animateSections() {
+    const sections = document.querySelectorAll('section');
+
+    sections.forEach(section => {
+        if (isElementInViewport(section)) {
+            section.classList.add('animate');
+        }
+    });
+
+    window.addEventListener('scroll', function() {
+        sections.forEach(section => {
+            if (isElementInViewport(section)) {
+                section.classList.add('animate');
+            }
+        });
+    });
+}
+
+function animateItems() {
+    const animatedItems = document.querySelectorAll('.animated-item');
+
+    animatedItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Reset all items
+            animatedItems.forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Activate clicked item
+            item.classList.add('active');
+        });
+    });
+}
+
+function setupShareOptions() {
+    const shareButton = document.getElementById('shareOptions');
+    const shareOptions = document.querySelector('.share-options');
+
+    shareButton.addEventListener('click', function() {
+        shareOptions.classList.toggle('show');
+    });
+}
+
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
