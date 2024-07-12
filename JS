@@ -1,7 +1,32 @@
+
 document.addEventListener('DOMContentLoaded', function() {
-    animateSections();
+  animateSections();
     animateItems();
     setupShareOptions();
+    animateBackground();
+    const shareOptions = document.querySelectorAll('.share-option');
+
+    shareOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const shareType = this.getAttribute('data-share');
+            switch (shareType) {
+                case 'whatsapp':
+                    alert('Share through WhatsApp');
+                    break;
+                case 'facebook':
+                    alert('Share through Facebook');
+                    break;
+                case 'instagram':
+                    alert('Share through Instagram');
+                    break;
+                case 'more':
+                    alert('More options');
+                    break;
+                default:
+                    break;
+            }
+        });
+    });
 });
 
 function animateSections() {
@@ -45,6 +70,16 @@ function setupShareOptions() {
     shareButton.addEventListener('click', function() {
         shareOptions.classList.toggle('show');
     });
+}
+
+function animateBackground() {
+    const colors = ['#ffccff', '#cc99ff', '#ff99cc', '#99ccff', '#ccff99'];
+    let index = 0;
+
+    setInterval(() => {
+        document.body.style.backgroundColor = colors[index];
+        index = (index + 1) % colors.length;
+    }, 2000); // Change color every 2 seconds
 }
 
 function isElementInViewport(el) {
