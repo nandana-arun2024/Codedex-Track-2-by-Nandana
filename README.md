@@ -25,4 +25,4 @@ Youtube (to understand HTML/CSS/JS)
 
 Improvements that could be made in the future
 
-I couldn't fully understand API keys and how to insert a map into this website. That could be something that I could do to majorly improve this website. 
+I couldn't fully understand API keys and how to insert a map into this website. That could be something that I could do to majorly improve this website. The icons and inserting pictures was very complicated to me as well and so I had to use the help of ChatGPT to help me with that.
